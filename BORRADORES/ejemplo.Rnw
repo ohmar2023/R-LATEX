@@ -1,0 +1,28 @@
+\documentclass{article}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+\title{ejemplo}
+\author{omarpbrasta }
+\date{September 2023}
+
+\maketitle
+
+\section{Introduction}
+\subsection{HOLA2}
+\subsubsection{HOLA 3}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics{Rplot.png}
+    \caption{Caption}
+    \label{fig:enter-label}
+\end{figure}
+
+
+<<>>=
+summary(cars)
+@
+
+\end{document}
