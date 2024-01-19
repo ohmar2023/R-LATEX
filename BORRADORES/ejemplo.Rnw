@@ -1,15 +1,4 @@
 \documentclass{article}
-\usepackage{enumerate}
-\usepackage[dvipsnames]{xcolor}
-
-% -----------------------------------------------------------------------------
-% CREANDO COMANDOS
-% -----------------------------------------------------------------------------
-\newcommand{\uno}[2]{{#1}+{#2}}
-\newcommand{\bim}[3][a][b]{{#1}^2+{#2}^2={#3}^2}
-
-% -----------------------------------------------------------------------------
-
 
 \begin{document}
 \SweaveOpts{concordance=TRUE}
@@ -32,34 +21,24 @@
 \end{figure}
 
 
-Hola \\
-como
-estas
-
-A pesar de que no existieron factores de expansión recortados, para evaluar los
-diferentes niveles de recorte aplicados, se estimó los MSE de 3 indicadores: PEA,
-empleo adecuado y desempleo, bajo diferentes desagregaciones como nivel
-nacional, por área y por estrato de muestreo, determinando los niveles\\
-“óptimos” de recorte para cada indicador investigado y para cada nivel de
-desagregación analizado
-
-
-\begin{tabular}{|c|c|c|}
-\hline
-X1 & X2 & X3 \\
-\hline
-1 & 2 & 3 \\
-\hline
-\end{tabular}
-
 <<>>=
 summary(cars)
 @
 
-Esto tiene color \textcolor{red}{hola que mas} \\
+<<echo=FALSE,results=tex>>=
+library(xtable)
+xtable(cars,"Hola")
+@
 
-$\uno{w}{y}$ \\
-$\bim{3}{4}{5}$\\
-$\bim{1}$\\
+Hola como $\Sexpr{cars$dist[1]}$ texto  \Sexpr{names(cars)[2]}
+
+<<>>=
+test <- c("testA", "testB", "testC")
+boldtest <- paste0("\\textbf{", test,"}", collapse = " and ")
+@
+
+%\Sexpr{asis_output(boldtest)}\\
+%\Sexpr{asis_output(paste0("\\textbf{", test,"}", collapse = " and "))}\\ 
+% not working
 
 \end{document}
